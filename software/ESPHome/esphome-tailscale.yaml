@@ -1,0 +1,164 @@
+#####################################################################################
+# PROJECT NAME: ESP32 Tailscale
+# VERSION: 1.0.2 (Multi-Board Instance Template)
+# COLLABORATORS: Brandon J. Winters, Ph.D. & Gemini (AI Adaptive Collaborator)
+# REPOSITORY ORIGIN: Developed for secure remote ESP32-S3 sensor deployment via Tailscale.
+# DATE: June 2026
+#####################################################################################
+
+substitutions:
+  master_update_interval: "1min"
+  # 1. [CHANGE ME] Increment this ID for the new board (e.g., "evm04")
+  device_id: "evm04" 
+
+esphome:
+  name: "${device_id}"
+  friendly_name: "${device_id}"
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf             
+
+# Import Tailscale VPN logic from GitHub
+external_components:
+  - source: github://Csontikka/esphome-tailscale
+
+# VPN Tunneling configuration
+tailscale:
+  # 2. [CHANGE ME] Paste a BRAND NEW disposable/reusable auth key from your Tailscale console
+  auth_key: "tskey-auth-CHANGEME_NEW_UNIQUE_KEY_FROM_TAILSCALE"
+  hostname: "${device_id}"    
+
+# Required switch for the Tailscale component to toggle debug info in logs
+switch:
+  - platform: template
+    name: "${device_id} Tailscale Logs"
+    id: tailscale_debug_switch
+    optimistic: true
+
+logger:                       
+
+# Home Assistant Native API
+api:
+  encryption:
+    # 3. [CHANGE ME] Generate a completely fresh 32-byte Base64 key for this board instance
+    key: "CHANGEME_GENERATE_A_NEW_UNIQUE_BASE64_KEY="
+  reboot_timeout: 0s                
+
+# Wireless Update Security
+ota:
+  - platform: esphome
+    # 4. [CHANGE ME] Create a fresh unique password string for secure wireless deployment
+    password: "CHANGEME_CREATE_A_NEW_OTA_PASSWORD"
+
+# Wireless Networking
+wifi:
+  ssid: "WintMesh"
+  password: "07312004"
+  
+  # Tracks dynamically via the updated substitution value
+  use_address: "${device_id}"        
+  reboot_timeout: 1min              
+  power_save_mode: light      
+  
+  # Fallback hotspot for local configuration
+  ap:
+    ssid: "${device_id}-AP"
+    password: "07312004"
+
+# --- INTERNAL RGB LED CONTROL ---
+light:
+  - platform: esp32_rmt_led_strip
+    id: internal_status_led
+    pin: GPIO48
+    num_leds: 1
+    rgb_order: GRB
+    chipset: WS2812
+    restore_mode: ALWAYS_OFF  
+
+button:
+  - platform: template
+    name: "Identify ${device_id}"
+    icon: "mdi:led-on"
+    on_press:
+      then:
+        - light.turn_on:
+            id: internal_status_led
+            brightness: 50%
+            red: 0%
+            green: 100%
+            blue: 0%
+        - delay: 5s
+        - light.turn_off: internal_status_led
+
+# MQTT Broker Communication
+mqtt:
+  broker: 100.112.149.104     
+  port: 1883
+  username: "databroker"      
+  password: "PaSsWoRd1234!"
+  discovery: true             
+  topic_prefix: esphome/${device_id}
+
+  birth_message:
+    topic: esphome/${device_id}/status
+    payload: online
+    retain: True 
+
+  will_message:
+    topic: esphome/${device_id}/status
+    payload: offline
+    retain: True         
+
+# Enables the web interface when connected to the Esp32-AP hotspot
+captive_portal:
+
+# I2C Bus for the BME680
+i2c:
+  - id: bus_a
+    sda: GPIO08
+    scl: GPIO09
+
+# Sensor Data Definition
+sensor:
+  - platform: internal_temperature
+    name: "${device_id} Temperature"
+    device_class: "temperature"
+    state_class: "measurement"
+    update_interval: ${master_update_interval}
+
+  - platform: wifi_signal
+    name: "${device_id} WiFi Signal"
+    device_class: "signal_strength"
+    state_class: "measurement"
+    update_interval: ${master_update_interval}
+
+  # Unified mathematical engine running clean and hidden
+  - platform: uptime
+    id: uptime_engine
+    update_interval: ${master_update_interval}
+    internal: true
+
+# Text Sensors Block
+text_sensor:
+  # Polished Human-Readable Dashboard Display
+  - platform: template
+    name: "${device_id} Formatted Uptime"
+    icon: "mdi:clock-start"
+    lambda: |-
+      int seconds = id(uptime_engine).state;
+      int days = seconds / 86400;
+      seconds %= 86400;
+      int hours = seconds / 3600;
+      seconds %= 3600;
+      int minutes = seconds / 60;
+      
+      char buffer[32];
+      if (days > 0) {
+        sprintf(buffer, "%dd, %02dh, %02dm", days, hours, minutes);
+      } else {
+        sprintf(buffer, "%02dh, %02dm", hours, minutes);
+      }
+      return {buffer};
+    update_interval: ${master_update_interval}

@@ -1,77 +1,28 @@
-LANDSLIDE DETECTION INTEGRATION SYSTEM DEPLOYMENT GUIDE (WOILD_V1.1.3)
-==============================================================================
+# 🏠 MOSSS Gateway Hub: Home Assistant Orchestration Layer
 
-This directory contains four primary files managing your landslide grid:
-  1. configuration.yaml - Core framework & derivative velocity tracking
-  2. templates.yaml     - Sensor mathematical matrices & state logic
-  3. automations.yaml   - Direct push alerts configured for 'your_phone_name'
-  4. readme.txt         - This instruction document
+This directory manages the central **Modular and Open-Source Science Station (MOSSS)** edge gateway. The gateway runs on bare-metal **Home Assistant Operating System (HAOS)** to compute vector matrices locally, completely independent of upstream cloud networks.
 
-------------------------------------------------------------------------------
-STEP 1: ACCESS THE HOME ASSISTANT ROOT CONFIGURATION FOLDER
-------------------------------------------------------------------------------
-To deploy or modify these files, access the root directory where your primary 
-configuration.yaml file is hosted. This can be accomplished via:
-  * The Studio Code Server Add-on (Highly Recommended)
-  * The File Editor Add-on via the Home Assistant sidebar
-  * A local network mapping utilizing the Samba share Add-on
+To make deployment structured, repeatable, and secure, the installation and code assets are isolated into a linear, three-stage pipeline. Execute these stages in chronological order:
 
-------------------------------------------------------------------------------
-STEP 2: APPLY CONFIGURATION FILES
-------------------------------------------------------------------------------
+---
 
-[A] CONFIGURATION.YAML
-  1. Open your active 'configuration.yaml' file.
-  2. Append or merge your current settings with the updated layout provided.
-  3. Ensure that the inclusion lines look exactly like this:
-        automation: !include automations.yaml
-        template: !include templates.yaml
-        sensor: !include configuration.yaml (or embedded directly below)
+## 🧭 Deployment Pipeline Matrix
 
-[B] TEMPLATES.YAML
-  1. Open 'templates.yaml' (create it in the root folder if it does not exist).
-  2. Overwrite the contents entirely with the sanitized LD01 telemetry matrix.
+### 🛠️ [Stage 1: HAOS-Setup](./1-HAOS-Setup/)
+*   **Purpose:** Physical hardware verification and core operating system flashing.
+*   **Key Operations:** Verifying Pi 4/5 power constraints, provisioning the 32GB high-endurance storage media using the Raspberry Pi Imager, executing a headless first-boot, and completing onboarding.
 
-[C] AUTOMATIONS.YAML
-  1. Open 'automations.yaml'.
-  2. Append or replace your active blocks with the updated 'LD01' and 
-     'Heavy Rain' rules.
-  3. NOTE: Both automations utilize 'mode: queued' and custom templates. 
-     Modifying these rules inside the Home Assistant Visual UI Editor may 
-     strip out or break the raw YAML syntax. Always edit alerts in YAML.
+### 🔐 [Stage 2: OS-Provisioning](./2-OS-Provisioning/)
+*   **Purpose:** Network configurations, community software extensions, and operational security (OpSec).
+*   **Key Operations:** Mapping the four-tier user hierarchy (including the isolated M2M `databroker` channel), initializing Nabu Casa and Tailscale redundant network pathways, and authenticating HACS.
 
-------------------------------------------------------------------------------
-STEP 3: SYSTEM VALIDATION & RELOADING
-------------------------------------------------------------------------------
-Before applying any configuration changes or restarting Home Assistant, you 
-MUST validate the structural integrity of your YAML files:
+### ⚙️ [Stage 3: Runtime-Configuration](./3-Runtime-Configuration/)
+*   **Purpose:** Live production software code, sensor tracking arrays, and alert logic.
+*   **Key Operations:** Deploying optimized `recorder:` database configurations for the 30-day wear-mitigation window, implementing the 2D Vector Deviation Matrix template formulas, and binding EcoWitt 5-minute rain cadences to critical landslide alerts.
 
-  1. In Home Assistant, navigate to: Developer Tools > YAML.
-  2. Click the "Check Configuration" button.
-  3. If any errors are flagged, double-check your spacing and line indentation.
-  4. Once configuration validation passes successfully, scroll down to 
-     "YAML Configuration Reloading" on the same page and click:
-     
-     * "Reload All YAML Configuration" 
-     
-     (Alternatively, individually click: Reload Automations, Reload Template 
-     Entities, and Reload Command Line Entities & Sensors).
+---
 
-------------------------------------------------------------------------------
-STEP 4: GRID EXPANSION (ADDING HARDWARE NODES LD02 THROUGH LD10)
-------------------------------------------------------------------------------
-When deployment of additional monitoring hardware is required:
+## 🏃 Getting Started
+To begin provisioning your station gateway hub, move directly to the first folder:
 
-  1. Open the target configuration file (configuration.yaml, templates.yaml, 
-     or automations.yaml).
-  2. Review the structural "Automation Scaling Note" commented at the top.
-  3. Duplicate the relevant 'LD01' code block.
-  4. Perform a localized Find & Replace inside ONLY your newly duplicated block:
-     * Change all instances of "LD01" to your new index (e.g., "LD02")
-     * Change all instances of "ld01" to your new index (e.g., "ld02")
-     * Change all instances of "landslide_01" to your new index ("landslide_02")
-  5. CRITICAL FOR TEMPLATES: Update the 'baseline_x'/'baseline_y' coordinates 
-     in the Safety Matrix block and the physical 'latitude'/'longitude' attributes 
-     in the Live Trackers block to match the specific field location of the new hardware.
-  6. Re-run Step 3 (Validation & Reloading) to bring the new node online.
-==============================================================================
+👉 **Begin Stage 1:** [Go to 1-HAOS-Setup](./1-HAOS-Setup/)
