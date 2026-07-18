@@ -22,22 +22,22 @@ The hardware subsystem is engineered to bridge abstract telemetry logic with res
 <table>
   <tr>
     <td>
-      <div style="font-weight: bold; font-size: 10px; text-transform: uppercase; font-family: sans-serif;">1. Circuit Logic</div>
-      <img src="/images/v3_circuit.png" alt="Circuit Schematic" width="160">
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; margin-bottom: 4px;">1. Circuit Logic</div>
+      <img src="/images/v3_circuit.png" alt="Circuit Schematic" width="320">
     </td>
     <td>
-      <div style="font-weight: bold; font-size: 10px; text-transform: uppercase; font-family: sans-serif;">2. Enclosures</div>
-      <img src="/images/boxes.JPG" alt="Physical Deployment Enclosures" width="160">
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; margin-bottom: 4px;">2. Enclosures</div>
+      <img src="/images/boxes.JPG" alt="Physical Deployment Enclosures" width="320">
     </td>
   </tr>
   <tr>
     <td>
-      <div style="font-weight: bold; font-size: 10px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff;">3. PCB Top</div>
-      <img src="/images/v3_front.png" alt="PCB Front Layer Layout" width="160">
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff; margin-top: 10px; margin-bottom: 4px;">3. PCB Top Side</div>
+      <img src="/images/v3_front.png" alt="PCB Front Layer Layout" width="320">
     </td>
     <td>
-      <div style="font-weight: bold; font-size: 10px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff;">4. PCB Bottom</div>
-      <img src="/images/v3_back.png" alt="PCB Back Layer Layout" width="160">
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff; margin-top: 10px; margin-bottom: 4px;">4. PCB Bottom Side</div>
+      <img src="/images/v3_back.png" alt="PCB Back Layer Layout" width="320">
     </td>
   </tr>
 </table>
