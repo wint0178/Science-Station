@@ -40,14 +40,17 @@ graph LR
     subgraph Emergency Action Layer
         NodeG -->|Threshold Breach Trigger| NodeH[Automated Alerts<br>HA Companion App Push]
     end
+```
+
+---
 
 ## 🛠️ Step-by-Step Implementation
 
 ### Step 1: Access the Home Assistant Root Configuration Folder
 To deploy or modify these files, access the root directory where your primary `configuration.yaml` file is hosted on your Raspberry Pi. This can be accomplished via:
-*   **The Studio Code Server Add-on** (Highly Recommended)
-*   **The File Editor Add-on** via the Home Assistant sidebar
-*   **Samba share Add-on** utilizing a local network folder mapping
+* **The Studio Code Server Add-on** (Highly Recommended)
+* **The File Editor Add-on** via the Home Assistant sidebar
+* **Samba share Add-on** utilizing a local network folder mapping
 
 ### Step 2: Apply Configuration Files
 
