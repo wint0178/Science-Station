@@ -20,32 +20,23 @@ global manufacturers. Popular high-quality options include:
 
 The hardware subsystem is engineered to bridge abstract telemetry logic with resilient environmental deployment. The panel matrix below tracks our complete progression from the baseline circuit traces to our physical field installation array.
 
-<!-- Native HTML Image Elements pointing to the centralized root folder -->
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-    
-    <!-- 1. Schematic -->
-    <div style="background: #ffffff; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">1. Electrical Circuit Logic</div>
-        <img src="/images/v3_circuit.png" alt="Circuit Schematic" style="width: 100%; height: auto; object-fit: contain; max-height: 350px;">
-    </div>
-
-    <!-- 2. Enclosures -->
-    <div style="background: #f4f4f6; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">2. Weatherproof Enclosures Array</div>
-        <img src="/images/boxes.JPG" alt="Physical Deployment Enclosures" style="width: 100%; height: auto; object-fit: contain; max-height: 350px; border-radius: 4px;">
-    </div>
-
-    <!-- 3. PCB Front -->
-    <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">3. PCB Trace Vector (Top Side)</div>
-        <img src="/images/v3_front.png" alt="PCB Front Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
-    </div>
-
-    <!-- 4. PCB Back -->
-    <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">4. PCB Trace Vector (Bottom Side)</div>
-        <img src="/images/v3_back.png" alt="PCB Back Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
-    </div>
+<div style="background: #ffffff; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+<div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">1. Electrical Circuit Logic</div>
+<img src="/images/v3_circuit.png" alt="Circuit Schematic" style="width: 100%; height: auto; object-fit: contain; max-height: 350px;">
+</div>
+<div style="background: #f4f4f6; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+<div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">2. Weatherproof Enclosures Array</div>
+<img src="/images/boxes.JPG" alt="Physical Deployment Enclosures" style="width: 100%; height: auto; object-fit: contain; max-height: 350px; border-radius: 4px;">
+</div>
+<div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+<div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">3. PCB Trace Vector (Top Side)</div>
+<img src="/images/v3_front.png" alt="PCB Front Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
+</div>
+<div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+<div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">4. PCB Trace Vector (Bottom Side)</div>
+<img src="/images/v3_back.png" alt="PCB Back Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
+</div>
 </div>
 
 ------------------------------------------------------------------------------
@@ -66,7 +57,7 @@ STEP-BY-STEP ORDERING INSTRUCTIONS
      * Most modern fabricators will automatically parse the zip archive and 
        display a live visual preview of the top and bottom layers of the board.
      * Ensure the board dimensions are automatically and correctly detected 
-       by the online system.
+     * by the online system.
 
 ------------------------------------------------------------------------------
 RECOMMENDED FABRICATION SPECIFICATIONS (PRODUCTION SETTINGS)
