@@ -1,4 +1,4 @@
-# SCIENCE STATION
+# Modular and Open-Source Science Station
 The **Science Station (SS) Topology** features a decentralized environmental monitoring network designed for rugged, remote terrain. Utilizing a localized **LoRaWAN** mesh alongside **EcoWitt** meteorological sensors, the system aggregates real-time microclimate data, barometric pressure, and physical movement tracking. All data streams converge on a centrally located, local **Home Assistant Core** gateway, which orchestrates automated mobile alerts and seamlessly bridges the network into broader smart home integrations.
 <img src="./ss-topology-image.png" />
 
