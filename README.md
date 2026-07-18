@@ -1,5 +1,9 @@
 # Modular and Open-Source Science Station
-The **Science Station (SS) Topology** features a decentralized environmental monitoring network designed for rugged, remote terrain. Utilizing a localized **LoRaWAN** mesh alongside **EcoWitt** meteorological sensors, the system aggregates real-time microclimate data, barometric pressure, and physical movement tracking. All data streams converge on a centrally located, local **Home Assistant Core** gateway, which orchestrates automated mobile alerts and seamlessly bridges the network into broader smart home integrations.
+The Science Station (SS) Topology features a decentralized environmental monitoring network designed for rugged, remote terrain. Utilizing a localized LoRaWAN mesh alongside EcoWitt meteorological sensors, the system aggregates real-time microclimate data, barometric pressure, and physical movement tracking. 
+
+At the core of this infrastructure is the **Wake On Interupt Landslide Detector (WOILD)** subsystem—an open-source hardware and telemetry framework specifically engineered to monitor slope stability and ground acceleration. 
+
+All data streams converge on a centrally located, local Home Assistant Core gateway, which orchestrates automated mobile alerts via custom vector deviation matrices and seamlessly bridges the network into broader smart integrations.
 <img src="./ss-topology-image.png" />
 
 ## 🛠️ Hardware Stack
