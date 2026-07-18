@@ -1,5 +1,5 @@
 # Modular and Open-Source Science Station
-> **"Gathering data so stones gather no momentum."**
+> **Gathering data so stones gather no momentum.**
 
 ---
 The Modular and Open-Source Science Station (MOSSS) features a decentralized 
@@ -17,7 +17,7 @@ All data streams converge on a centrally located, local Home Assistant Core
 gateway, which orchestrates automated mobile alerts via custom vector 
 deviation matrices and bridges the network into broader commercial smart 
 integrations.
-<img src="./ss-topology-image.png" />
+<img src="./MOSSS_Topology.png" />
 
 ## 🛠️ Hardware Stack
 
