@@ -17,7 +17,7 @@ All data streams converge on a centrally located, local Home Assistant Core
 gateway, which orchestrates automated mobile alerts via custom vector 
 deviation matrices and bridges the network into broader commercial smart 
 integrations.
-<img src="./MOSS_Topology.png" />
+<img src="./MOSSS_Topology.png" />
 
 ## 🛠️ Hardware Stack
 
