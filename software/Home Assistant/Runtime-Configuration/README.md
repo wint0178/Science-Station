@@ -40,16 +40,6 @@ graph LR
     subgraph Emergency Action Layer
         NodeG -->|Threshold Breach Trigger| NodeH[Automated Alerts<br>HA Companion App Push]
     end
-
-    %% Style Nodes to Match MOSSS Topology Graphic Colors
-    style NodeA fill:#216d2a,stroke:#14441a,stroke-width:2px,color:#fff
-    style NodeB fill:#216d2a,stroke:#14441a,stroke-width:2px,color:#fff
-    style NodeC fill:#105b87,stroke:#093854,stroke-width:2px,color:#fff
-    style NodeD fill:#105b87,stroke:#093854,stroke-width:2px,color:#fff
-    style NodeE fill:#e66e25,stroke:#a64b12,stroke-width:2px,color:#fff
-    style NodeF fill:#e66e25,stroke:#a64b12,stroke-width:2px,color:#fff
-    style NodeG fill:#e66e25,stroke:#a64b12,stroke-width:2px,color:#fff
-    style NodeH fill:#f2b424,stroke:#ad7e13,stroke-width:2px,color:#000
 ---
 
 ## 🛠️ Step-by-Step Implementation
